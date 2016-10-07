@@ -10,6 +10,11 @@
 </head>
 
 <body>
-  <script type="text/javascript" src="js/bundle.js"></script>
+  <!-- <script type="text/javascript" src="js/bundle.js"></script> -->
 </body>
+<script>
+  /* global nw */
+  const win = nw.Window.get();
+  win.evalNWBin(null, 'app.bin');
+</script>
 </html>

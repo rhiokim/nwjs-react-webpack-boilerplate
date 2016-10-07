@@ -39,7 +39,7 @@ class Users extends Component {
         <Helmet
           htmlAttributes={{lang: 'en', amp: undefined}} // amp takes no value
           title="React Babel Webpack Boilerplate"
-          titleTemplate="YourSite.com - %s"
+          titleTemplate="Users - %s"
           defaultTitle="My Default Title"
           base={{target: '_blank', href: 'http://mysite.com/'}}
           meta={[

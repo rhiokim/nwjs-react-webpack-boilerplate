@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ShellWebpackPlugin = require('webpack-shell-plugin');
 
 module.exports = {
   devtool: 'cheap-source-map',
@@ -42,5 +43,10 @@ module.exports = {
       { from: './app/index.html', to: 'index.html' },
       { from: './app/package.json', to: 'package.json' }
     ]),
+    // new ShellWebpackPlugin({
+    //   onBuildExit: [
+    //     'nwjc build/js/bundle.js build/app.bin'
+    //   ]
+    // })
   ]
 };

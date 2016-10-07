@@ -1,4 +1,4 @@
-/* global __DEV__ */
+/* global __DEV__ nw */
 import React from 'react';
 import {render} from 'react-dom';
 import {Router, hashHistory} from 'react-router';
@@ -7,6 +7,11 @@ import {syncHistoryWithStore} from 'react-router-redux';
 
 import routes from 'routes';
 import configureStore from 'store/configureStore';
+
+/**
+ * menubar
+ */
+import Menu from 'nw/menu/Menu';
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
