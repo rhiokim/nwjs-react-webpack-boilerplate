@@ -1,0 +1,149 @@
+{
+  "name": "nwjs-react-webpack-boilerplate",
+  "version": "1.0.0",
+  "description": "standalone web application boilerplate with nwjs",
+  "main": "app/boostrap.jsx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhiokim/nwjs-react-webpack-boilerplate.git"
+  },
+  "scripts": {
+    "lint": "eslint --format=node_modules/eslint-formatter-pretty 'app/**/*.@(js|jsx)'",
+    "lint:msg": "validate-commit-msg",
+    "test": "mocha --opts mocha.opts -R spec",
+    "test:watch": "mocha --opts mocha.opts --watch --watch-extensions jsx -R min",
+    "test:jenkins": "mocha --opts mocha.opts -R xunit > test-reports.xml",
+    "test:jest": "jest",
+    "test:karma": "karma start",
+    "build": "webpack",
+    "start": "webpack-dev-server --devtool eval --progress --hot --colors --content-base app",
+    "prod": "NODE_ENV=production webpack -p --config webpack.production.config.js",
+    "validate": "npm ls",
+    "commit": "git cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
+    "docker-build": "docker build --tag react-app .",
+    "docker-run": "docker run -d -p 80:80 -p 443:443 --name react-app react-app:latest",
+    "docker-rm": "docker rm -f react-app"
+  },
+  "dependencies": {
+    "axios": "^0.14.0",
+    "babel-runtime": "^6.11.6",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-helmet": "^3.1.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.6.1",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.11.4",
+    "babel-eslint": "^7.0.0",
+    "babel-jest": "^16.0.0",
+    "babel-loader": "~6.2.0",
+    "babel-plugin-transform-runtime": "^6.12.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "commitizen": "^2.8.2",
+    "conventional-changelog": "^1.1.0",
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.25.0",
+    "cz-conventional-changelog": "^1.1.6",
+    "enzyme": "^2.4.1",
+    "eslint": "^3.2.0",
+    "eslint-config-xo": "^0.16.0",
+    "eslint-config-xo-react": "^0.10.0",
+    "eslint-formatter-pretty": "^1.0.0",
+    "eslint-plugin-react": "^6.3.0",
+    "expect": "^1.20.2",
+    "expect-jsx": "^2.6.0",
+    "file-loader": "^0.9.0",
+    "ghooks": "^1.3.2",
+    "install": "^0.8.1",
+    "jest-cli": "^16.0.1",
+    "karma": "^1.1.2",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-cli": "^1.0.1",
+    "karma-coverage": "^1.1.1",
+    "karma-jenkins-reporter": "0.0.2",
+    "karma-mocha": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-sinon": "^1.0.5",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^3.1.0",
+    "npm-install-webpack-plugin": "^4.0.3",
+    "open-browser-webpack-plugin": "0.0.2",
+    "phantomjs-prebuilt": "^2.1.9",
+    "react-addons-test-utils": "^15.3.0",
+    "react-router-redux": "^4.0.5",
+    "redbox-react": "^1.2.10",
+    "redux-devtools": "^3.3.1",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.0.11",
+    "redux-logger": "^2.6.1",
+    "sass-loader": "^4.0.0",
+    "sinon": "^1.17.5",
+    "style-loader": "~0.13.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.16.2",
+    "why-did-you-update": "0.0.8"
+  },
+  "keywords": [
+    "es6",
+    "web app",
+    "boilerplate"
+  ],
+  "author": "Ruan Yifeng",
+  "license": "MIT",
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run lint"
+    },
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "chore",
+        "revert"
+      ],
+      "warnOnFail": false,
+      "maxSubjectLength": 100
+    },
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "testFileExtensions": [
+      "jsx"
+    ],
+    "testPathDirs": [
+      "<rootDir>/app"
+    ],
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils"
+    ]
+  },
+  "ava": {
+    "files": [
+      "app/**/*-test.{js,jsx}"
+    ],
+    "failFast": true,
+    "tap": true,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  }
+}

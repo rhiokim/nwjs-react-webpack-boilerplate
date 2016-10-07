@@ -1,0 +1,59 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true,
+    "destructuring": true
+  },
+  "globals": {
+  },
+  "plugins": [
+    "react"
+  ],
+  "parser": "babel-eslint",
+  "extends": ["xo", "xo-react"],
+  "rules": {
+    "arrow-parens": [1, "as-needed"],
+    "brace-style": [
+      2, "1tbs", {
+        "allowSingleLine": true
+      }
+    ],
+    "comma-dangle": 0,
+    "id-length": 0,
+    "indent": [
+      2, 2, {
+        "SwitchCase": 1
+      }
+    ],
+    "max-statements-per-line": 0,
+    "no-console": 0,
+    "no-warning-comments": [
+      1, {
+        "terms": ["fixme"]
+      }
+    ],
+    "no-self-assign": 0,
+    "no-unused-vars": 1,
+    "no-return-assign": 0,
+    "object-curly-spacing": [0, "never"],
+    "react/jsx-closing-bracket-location": [
+      1, {
+        "selfClosing": "after-props",
+        "nonEmpty": "after-props"
+      }
+    ],
+    "react/jsx-first-prop-new-line": 0,
+    "react/jsx-indent": [2, 2],
+    "react/jsx-indent-props": [2, 2],
+    "react/jsx-no-bind": 0,
+    "react/jsx-space-before-closing": [2, "always"],
+    "react/no-string-refs": 1,
+    "react/no-unknown-property": 1,
+    "react/prop-types": 0,
+  }
+}
